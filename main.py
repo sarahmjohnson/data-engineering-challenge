@@ -155,7 +155,7 @@ def transform_text() -> DataFrame:
     text_df = text_df.withColumn("text_feature_arrays", udf_text_to_features(text_df.w))
     text_df = text_df.drop("w")
 
-    # group by speakerid to gather text_feature_arrays associated with the same speakerid for easier downstream manipulation
+    # group by speakerid to gather text_feature_arrays associated with the same speakerid for easier access in training
     text_df = text_df.groupby("speakerid").agg(collect_set("text_feature_arrays"))
     return text_df
 
