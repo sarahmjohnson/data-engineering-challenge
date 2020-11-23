@@ -66,4 +66,4 @@ How would you deploy this repository on a Kubernetes cluster?
 
 Assume we now are using this repository as part of a product that we have deployed. How would you ensure that we can stream the data preprocessing? What technologies would you use? 
 
-- I would use Apache Kafka. The spark application would fetch data from the Kafka topic. I would edit the code in `main.py` to instead of call a function like I do now and process a single folder of data, to constantly stream in the xml and wav files in batches. I find this is a good guide of how to implement streaming with Kafka and pyspark: https://spark.apache.org/docs/latest/streaming-programming-guide.html.
+- I would use Apache Kafka. The spark application would fetch data from the Kafka topic. I would edit the code in `main.py` that calls a function and processes a single folder of data. Instead, it would constantly stream in the data and process it in batches. I find this is a good guide of how to implement streaming with Kafka and pyspark: https://spark.apache.org/docs/latest/streaming-programming-guide.html.
