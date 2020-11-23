@@ -36,7 +36,7 @@ data-engineering-challenge
 
 Used `black` to format according to PEP8.
 
-Created `.gitignore` to disclude the PI data. Normally, the `.gitignore` should also include `/training_data` and data should only be sent through airdrop or uploaded to private s3 and downloaded. However, since it is dummy data, I've included it in the github repo. 
+Created `.gitignore` to disclude the PI data. Normally, the `.gitignore` should also include `/data` and `/training_data` and data should only be sent through airdrop or uploaded to private s3 and downloaded. However, since it is dummy data, I've included them in the github repo. 
 
 With more time, I would dockerize and create unit tests.
 

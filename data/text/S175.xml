@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+   <metadata>
+      <type>manual</type>
+      <guidelines>chat</guidelines>
+      <sessionid>S175</sessionid>
+      <speakerids>speaker_S175,_inv</speakerids>
+   </metadata>
+   <transcript>
+      <segment segmentid="S175_0" tend="2.36" tstart="0.0">
+         <w speakerid="_inv">how</w>
+         <w speakerid="_inv">are</w>
+         <w speakerid="_inv">you</w>
+         <w speakerid="_inv">doing</w>
+         <w speakerid="_inv">?</w>
+      </segment>
+      <segment segmentid="S175_1" tend="4.266" tstart="2.36">
+         <w speakerid="_inv">very</w>
+         <w speakerid="_inv">well</w>
+         <w speakerid="_inv">thank</w>
+         <w speakerid="_inv">you</w>
+         <w speakerid="_inv">.</w>
+      </segment>
+   </transcript>
+</root>
