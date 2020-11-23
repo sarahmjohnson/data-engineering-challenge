@@ -201,8 +201,7 @@ def sort_to_groups(
 
 def create_dataset(type_classification: str) -> Dict:
     """
-    Create text dataframe from xmls
-    Preprocess and transform into better format
+    Create dataset for training based on the type of classification
 
     Args:
         type_classification: str
