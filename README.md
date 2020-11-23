@@ -10,16 +10,33 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
 
+Add the raw data in this format:
+```
+data-engineering-challenge
+    data
+        audio
+            *.wav
+        text
+            *.xml
+        metadata.csv
+```
+
 Run to generate all 3 datasets:
 ```
 python main.py
+```
+
+You will find the training_data under the folder:
+```
+data-engineering-challenge
+    training_data
 ```
 
 ## Things to note
 
 Used `black` to format according to PEP8.
 
-Created `.gitignore` to disclude the PI data - shouldn't push any data to github ever - should only be sent through airdrop, upload to private s3 and download, and should document what has been sent and where 
+Created `.gitignore` to disclude the PI data. Data should only be sent through airdrop or uploaded to private s3 and downloaded. 
 
 With more time, I would dockerize and create unit tests.
 
@@ -27,7 +44,7 @@ With more time, I would dockerize and create unit tests.
 
 How would you deploy this repository on a Kubernetes cluster?
 
-I would follow the documentation here: https://sparkbyexamples.com/spark/spark-submit-command/
+- I would follow the documentation here: https://sparkbyexamples.com/spark/spark-submit-command/
 Here is the command that would submit the app:
 
 ```
@@ -44,9 +61,9 @@ Here is the command that would submit the app:
   [application-arguments]
   ```
 
-  I would include the `spark-xml` jar and `deploy-mode` would be `cluster` so that the spark driver runs on one of the nodes in the cluster. The `master` option would be `kubernetes`. 
+  - `deploy-mode` would be `cluster` so that the spark driver runs on one of the nodes in the cluster, `master` would be `kubernetes`, and `jars` would include `spark-xml`. 
 
 
 Assume we now are using this repository as part of a product that we have deployed. How would you ensure that we can stream the data preprocessing? What technologies would you use? 
 
-I would use Apache Kafka. The spark application would fetch data from the Kafka topic. I would edit the code in `main.py` to instead of call a function like I do now to process a folder of data, constantly stream in the xml and wav files. 
+- I would use Apache Kafka. The spark application would fetch data from the Kafka topic. I would edit the code in `main.py` to instead of call a function like I do now and process a folder of data, to constantly stream in the xml and wav files. I find this is a good guide of how to implement streaming with Kafka and pyspark: https://spark.apache.org/docs/latest/streaming-programming-guide.html.
