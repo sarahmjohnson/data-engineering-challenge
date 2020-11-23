@@ -36,7 +36,7 @@ data-engineering-challenge
 
 Used `black` to format according to PEP8.
 
-Created `.gitignore` to disclude the PI data. Data should only be sent through airdrop or uploaded to private s3 and downloaded. 
+Created `.gitignore` to disclude the PI data. Normally, the `.gitignore` should also include `/training_data` and data should only be sent through airdrop or uploaded to private s3 and downloaded. However, since it is dummy data, I've included it in the github repo. 
 
 With more time, I would dockerize and create unit tests.
 
@@ -44,8 +44,8 @@ With more time, I would dockerize and create unit tests.
 
 How would you deploy this repository on a Kubernetes cluster?
 
-- I would follow the documentation here: https://sparkbyexamples.com/spark/spark-submit-command/
-Here is the command that would submit the app:
+- I would follow the documentation here: https://sparkbyexamples.com/spark/spark-submit-command/.
+- Here is the command that would submit the app:
 
 ```
 ./bin/spark-submit \
