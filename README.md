@@ -2,14 +2,30 @@
 
 # Novoic data engineering challenge
 
-"""
-Used `black` to format according to PEP8
+## How to
+
+Clone the repo and run:
+```
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+```
+
+Run to generate all 3 datasets:
+```
+python main.py
+```
+
+## Things to note
+
+Used `black` to format according to PEP8.
+
 Created `.gitignore` to disclude the PI data - shouldn't push any data to github ever - should only be sent through airdrop, upload to private s3 and download, and should document what has been sent and where 
 
 With more time, I would dockerize and create unit tests.
 
+## QUESTIONS
 
-- How would you deploy this repository on a Kubernetes cluster?
+How would you deploy this repository on a Kubernetes cluster?
 
 I would follow the documentation here: https://sparkbyexamples.com/spark/spark-submit-command/
 Here is the command that would submit the app:
@@ -25,11 +41,12 @@ Here is the command that would submit the app:
   --jars  <comma separated dependencies>
   --class <main-class> \
   <application-jar> \
-  [application-arguments]```
+  [application-arguments]
+  ```
 
-  I would include the `spark-xml` jar and the `deploy-mode` would be `cluster` so that the spark driver runs on one of the nodes in the cluster. The `master` option would be `kubernetes`. 
+  I would include the `spark-xml` jar and `deploy-mode` would be `cluster` so that the spark driver runs on one of the nodes in the cluster. The `master` option would be `kubernetes`. 
 
 
-- Assume we now are using this repository as part of a product that we have deployed. How would you ensure that we can stream the data preprocessing? What technologies would you use? 
+Assume we now are using this repository as part of a product that we have deployed. How would you ensure that we can stream the data preprocessing? What technologies would you use? 
 
 I would use Apache Kafka. The spark application would fetch data from the Kafka topic. I would edit the code in `main.py` to instead of call a function like I do now to process a folder of data, constantly stream in the xml and wav files. 
