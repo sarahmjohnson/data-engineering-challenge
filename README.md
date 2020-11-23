@@ -10,7 +10,7 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
 
-Add the raw data in this format:
+The raw data should be in this format:
 ```
 data-engineering-challenge
     data
